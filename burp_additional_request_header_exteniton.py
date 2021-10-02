@@ -3,4 +3,8 @@ from burp import IHttpListener
 
 class BurpExtender(IBurpXtender, IHttpListner):
     def registerExtenderCallbacks(self, callbacks):
-        pass
+        self._callbacks = callbacks
+        self._helpers = callbacks.getHelpers()
+        callbacks.setExtensionName("Homemade Extension")
+        callbacks.registerHttpListener(self)
+        return
