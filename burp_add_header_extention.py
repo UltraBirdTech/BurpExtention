@@ -14,6 +14,8 @@ class BurpExtender(IBurpExtender, IHttpListener):
         callbacks.registerHttpListener(self)
         return
 
+    # DOC: [Method] https://portswigger.net/Burp/extender/api/burp/IHttpListener.html#processHttpMessage(int,%20boolean,%20burp.IHttpRequestResponse)
+    # DOC: [Verb]   https://portswigger.net/Burp/extender/api/burp/IHttpRequestResponse.html
     def processHttpMessage(self, tool_flag, is_message_request, current_request):
         if not is_message_request:
             return
