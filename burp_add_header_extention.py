@@ -4,7 +4,9 @@ from burp import IHttpListener
 class BurpExtender(IBurpExtender, IHttpListener):
     def __init__(self):
         self.new_header = "X-Original-Header: UltraBird"
-
+    
+    # DOC: [Method] https://portswigger.net/Burp/extender/api/burp/IBurpExtender.html#registerExtenderCallbacks(burp.IBurpExtenderCallbacks)
+    # DOC: [Verb]   https://portswigger.net/Burp/extender/api/burp/IBurpExtenderCallbacks.html
     def registerExtenderCallbacks(self, callbacks):
         self._callbacks = callbacks
         self._helpers = callbacks.getHelpers()
